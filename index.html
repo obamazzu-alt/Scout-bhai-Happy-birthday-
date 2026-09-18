@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Happy Birthday Scout Bhai 🕷️</title>
+
+  <link rel="stylesheet" href="./style.css">
+</head>
+
+<body>
+
+  <!-- BACKGROUND MUSIC -->
+  <audio id="birthdayMusic" loop>
+    <source src="./birthday.mp3" type="audio/mpeg">
+  </audio>
+
+  <!-- MUSIC BUTTON -->
+  <button id="musicBtn" class="music-btn">🎵</button>
+
+  <!-- CARD -->
+  <main class="scene" id="card">
+
+    <!-- INSIDE OF CARD -->
+    <section class="inside">
+
+      <img
+        src="./inside.jpg"
+        alt="Spider-Man Birthday Card"
+        class="inside-image"
+      >
+
+      <div class="birthday-message">
+
+        <h1>Happy Birthday</h1>
+
+        <h2>Scout Bhai 🕷️</h2>
+
+        <p>
+          Sorry for being late! ❤️
+        </p>
+
+        <p>
+          Hope your special day was full of happiness,
+          fun & good vibes. 🎂✨
+        </p>
+
+        <p class="extra-line">
+          Stay amazing, keep smiling & keep being
+          the legend you are! 🕸️❤️
+        </p>
+
+        <button id="continueBtn">
+          Continue 🕷️
+        </button>
+
+      </div>
+
+    </section>
+
+
+    <!-- FRONT COVER -->
+    <section class="cover">
+
+      <div class="cover-half cover-left">
+        <img src="./cover.jpg" alt="Spider-Man Cover">
+      </div>
+
+      <div class="cover-half cover-right">
+        <img src="./cover.jpg" alt="Spider-Man Cover">
+      </div>
+
+    </section>
+
+
+    <!-- OPEN BUTTON -->
+    <div class="open-area" id="openArea">
+
+      <button id="openBtn">
+        🕷️ OPEN CARD
+      </button>
+
+      <p>
+        Tap to open your birthday surprise
+      </p>
+
+    </div>
+
+
+    <!-- CLOSE BUTTON -->
+    <button class="close-btn" id="closeBtn">
+      ×
+    </button>
+
+
+    <!-- BIRTHDAY GAME -->
+    <section class="game" id="game">
+
+      <div class="game-card">
+
+        <h2 id="gameTitle">
+          Make a wish! 🎂
+        </h2>
+
+
+        <!-- CANDLE STAGE -->
+        <div class="stage" id="candleStage">
+
+          <div class="candle">
+
+            <div class="flame" id="flame">
+              🔥
+            </div>
+
+            <div class="candle-stick"></div>
+
+          </div>
+
+          <p>
+            Blow the candle! 🎤
+          </p>
+
+          <button id="blowBtn">
+            💨 Blow Candle
+          </button>
+
+        </div>
+
+
+        <!-- CAKE STAGE -->
+        <div class="stage cake-stage" id="cakeStage">
+
+          <div class="cake">
+
+            <div class="cake-top">
+              🕷️
+            </div>
+
+            <div class="cake-body">
+              🎂
+            </div>
+
+          </div>
+
+          <h2>
+            SCOUT OP 🕷️
+          </h2>
+
+          <button id="cakeBtn">
+            🍰 Cut Your Cake
+          </button>
+
+        </div>
+
+
+        <!-- GIFT STAGE -->
+        <div class="stage final-stage" id="finalStage">
+
+          <h2>
+            One more surprise... 🎁
+          </h2>
+
+          <button id="giftBtn">
+            🎁 Open Your Gift
+          </button>
+
+        </div>
+
+
+        <!-- GIFT OPENED -->
+        <div class="stage gift-stage" id="giftStage">
+
+          <div class="gift-box">
+
+            <div class="gift-lid">
+              🎁
+            </div>
+
+            <div class="gift-body">
+              🎁
+            </div>
+
+          </div>
+
+
+          <!-- SPIDER-MAN TOY -->
+          <div class="spiderman-toy" id="spidermanToy">
+
+            <div class="toy-head">
+              🕷️
+            </div>
+
+            <div class="toy-body">
+              🕷️
+            </div>
+
+          </div>
+
+
+          <h2>
+            Scout, Happy Birthday! ❤️🕷️
+          </h2>
+
+          <p>
+            From your friendly neighborhood Spider-Man 🕸️
+          </p>
+
+          <button id="speakBtn">
+            🔊 Hear Message
+          </button>
+
+        </div>
+
+      </div>
+
+    </section>
+
+  </main>
+
+
+  <!-- JAVASCRIPT -->
+  <script src="./script.js"></script>
+
+</body>
+</html>
