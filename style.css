@@ -1,0 +1,1174 @@
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  width: 100%;
+  min-height: 100%;
+}
+
+body {
+  min-height: 100vh;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  overflow: hidden;
+
+  background:
+    radial-gradient(
+      circle at center,
+      #280000,
+      #080808 55%,
+      #000000
+    );
+
+  font-family:
+    Arial,
+    Helvetica,
+    sans-serif;
+}
+
+
+/* =========================
+   MAIN CARD
+========================= */
+
+.scene {
+
+  width: min(94vw, 430px);
+  height: min(94vh, 760px);
+
+  position: relative;
+
+  perspective: 1800px;
+}
+
+
+/* =========================
+   INSIDE
+========================= */
+
+.inside {
+
+  position: absolute;
+
+  inset: 0;
+
+  overflow: hidden;
+
+  border-radius: 10px;
+
+  background: #000;
+
+  box-shadow:
+    0 0 35px rgba(255, 0, 0, .35);
+}
+
+.inside-image {
+
+  width: 100%;
+  height: 100%;
+
+  object-fit: cover;
+
+  display: block;
+}
+
+
+/* =========================
+   BIRTHDAY MESSAGE
+========================= */
+
+.birthday-message {
+
+  position: absolute;
+
+  top: 24%;
+  left: 10%;
+  right: 10%;
+
+  text-align: center;
+
+  color: white;
+}
+
+.birthday-message h1 {
+
+  margin: 0;
+
+  font-family:
+    Georgia,
+    "Times New Roman",
+    serif;
+
+  font-style: italic;
+
+  font-size: clamp(34px, 9vw, 55px);
+
+  color: white;
+
+  text-shadow:
+    0 0 6px red,
+    2px 2px 0 #650000,
+    0 0 20px red;
+}
+
+.birthday-message h2 {
+
+  margin: 15px 0 10px;
+
+  font-size: clamp(21px, 5vw, 29px);
+
+  color: #ff2424;
+
+  text-shadow:
+    0 0 10px red;
+}
+
+.birthday-message p {
+
+  font-size: clamp(14px, 4vw, 18px);
+
+  line-height: 1.5;
+
+  font-weight: bold;
+
+  text-shadow:
+    0 2px 5px black;
+}
+
+.extra-line {
+
+  color: #ffcccc;
+}
+
+
+/* =========================
+   FRONT COVER
+========================= */
+
+.cover {
+
+  position: absolute;
+
+  inset: 0;
+
+  z-index: 5;
+
+  pointer-events: none;
+}
+
+.cover-half {
+
+  position: absolute;
+
+  top: 0;
+  bottom: 0;
+
+  width: 50%;
+
+  background-image: url("cover.jpg");
+
+  background-size: 200% 100%;
+
+  background-repeat: no-repeat;
+
+  transition:
+    transform 1.35s
+    cubic-bezier(.76, 0, .18, 1);
+
+  border: 1px solid #180000;
+
+  transform-style: preserve-3d;
+}
+
+.cover-left {
+
+  left: 0;
+
+  background-position: left center;
+
+  transform-origin: left center;
+
+  border-radius:
+    10px 0 0 10px;
+}
+
+.cover-right {
+
+  right: 0;
+
+  background-position: right center;
+
+  transform-origin: right center;
+
+  border-radius:
+    0 10px 10px 0;
+}
+
+
+/* OPEN ANIMATION */
+
+.scene.open .cover-left {
+
+  transform:
+    rotateY(-110deg);
+}
+
+.scene.open .cover-right {
+
+  transform:
+    rotateY(110deg);
+}
+
+
+/* =========================
+   OPEN BUTTON
+========================= */
+
+.open-area {
+
+  position: absolute;
+
+  z-index: 10;
+
+  left: 50%;
+  top: 58%;
+
+  transform:
+    translate(-50%, -50%);
+
+  text-align: center;
+
+  transition: .4s;
+}
+
+.open-area button {
+
+  border: 2px solid #ff2525;
+
+  border-radius: 999px;
+
+  padding:
+    14px 28px;
+
+  background:
+    linear-gradient(
+      #e00000,
+      #650000
+    );
+
+  color: white;
+
+  font-size: 17px;
+
+  font-weight: 900;
+
+  letter-spacing: 1.5px;
+
+  cursor: pointer;
+
+  box-shadow:
+    0 0 22px
+    rgba(255, 0, 0, .7);
+}
+
+.open-area p {
+
+  color: white;
+
+  font-size: 12px;
+
+  text-shadow:
+    0 2px 5px black;
+}
+
+.scene.open .open-area {
+
+  opacity: 0;
+
+  pointer-events: none;
+
+  transform:
+    translate(-50%, -50%)
+    scale(.6);
+}
+
+
+/* =========================
+   CONTINUE BUTTON
+========================= */
+
+#continueBtn {
+
+  margin-top: 15px;
+
+  border: 2px solid #ff2525;
+
+  border-radius: 999px;
+
+  padding: 10px 20px;
+
+  color: white;
+
+  background:
+    linear-gradient(
+      #d90000,
+      #600000
+    );
+
+  font-weight: 900;
+
+  cursor: pointer;
+}
+
+
+/* =========================
+   CLOSE
+========================= */
+
+.close-btn {
+
+  position: absolute;
+
+  z-index: 30;
+
+  right: 12px;
+  top: 12px;
+
+  width: 36px;
+  height: 36px;
+
+  display: none;
+
+  border:
+    1px solid red;
+
+  border-radius: 50%;
+
+  background: #080808;
+
+  color: white;
+
+  font-size: 23px;
+
+  cursor: pointer;
+}
+
+.scene.open .close-btn {
+
+  display: block;
+}
+
+
+/* =========================
+   MUSIC BUTTON
+========================= */
+
+.music-btn {
+
+  position: absolute;
+
+  z-index: 40;
+
+  right: 14px;
+  bottom: 14px;
+
+  width: 44px;
+  height: 44px;
+
+  border-radius: 50%;
+
+  border: 2px solid red;
+
+  background: #080808;
+
+  color: white;
+
+  font-size: 20px;
+
+  cursor: pointer;
+
+  box-shadow:
+    0 0 15px rgba(255, 0, 0, .5);
+}
+
+
+/* =========================
+   GAME
+========================= */
+
+.game {
+
+  position: absolute;
+
+  inset: 0;
+
+  z-index: 25;
+
+  display: none;
+
+  justify-content: center;
+
+  align-items: center;
+
+  background:
+    rgba(0, 0, 0, .78);
+
+  backdrop-filter:
+    blur(4px);
+}
+
+.scene.game-mode .game {
+
+  display: flex;
+}
+
+.game-card {
+
+  width: 86%;
+
+  min-height: 58%;
+
+  padding: 25px 18px;
+
+  border:
+    2px solid #a00000;
+
+  border-radius: 20px;
+
+  background:
+    linear-gradient(
+      145deg,
+      #070707,
+      #250303
+    );
+
+  box-shadow:
+    0 0 35px
+    rgba(255, 0, 0, .5);
+
+  text-align: center;
+
+  display: flex;
+
+  flex-direction: column;
+
+  justify-content: center;
+
+  align-items: center;
+}
+
+.game-card > h2 {
+
+  color: white;
+
+  text-shadow:
+    0 0 10px red;
+}
+
+.stage {
+
+  display: flex;
+
+  flex-direction: column;
+
+  align-items: center;
+}
+
+
+/* =========================
+   CANDLE
+========================= */
+
+.candle-flame {
+
+  width: 18px;
+  height: 32px;
+
+  border-radius:
+    60% 40% 60% 40%;
+
+  background:
+    #ffb000;
+
+  box-shadow:
+    0 0 25px orange,
+    0 0 50px red;
+
+  animation:
+    flicker .18s infinite alternate;
+}
+
+.candle-flame.out {
+
+  opacity: 0;
+
+  transform:
+    scale(.2);
+}
+
+.candle {
+
+  font-size: 85px;
+
+  margin-top: -3px;
+}
+
+.stage p {
+
+  color: white;
+
+  line-height: 1.5;
+}
+
+.red-btn {
+
+  border:
+    2px solid #ff2525;
+
+  border-radius: 999px;
+
+  padding:
+    12px 22px;
+
+  color: white;
+
+  background:
+    linear-gradient(
+      #e00000,
+      #650000
+    );
+
+  font-weight: 900;
+
+  cursor: pointer;
+
+  box-shadow:
+    0 0 15px
+    rgba(255, 0, 0, .5);
+}
+
+.small-btn {
+
+  margin-top: 10px;
+
+  border:
+    1px solid red;
+
+  border-radius: 999px;
+
+  padding: 8px 13px;
+
+  background: #100000;
+
+  color: white;
+
+  cursor: pointer;
+
+  font-size: 11px;
+}
+
+.status {
+
+  font-size: 11px;
+
+  color: #bbb !important;
+}
+
+
+/* =========================
+   CAKE
+========================= */
+
+.cake-stage,
+.final-stage,
+.gift-stage {
+
+  display: none;
+}
+
+.cake {
+
+  width: 220px;
+  height: 170px;
+
+  position: relative;
+
+  margin-bottom: 20px;
+}
+
+.cake-top {
+
+  position: absolute;
+
+  top: 10px;
+
+  width: 220px;
+  height: 70px;
+
+  border-radius: 50%;
+
+  border:
+    3px solid #e72b1a;
+
+  background:
+    linear-gradient(
+      #7e1a0b,
+      #360603
+    );
+
+  color: white;
+
+  font-size: 38px;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  flex-direction: column;
+}
+
+.cake-top span {
+
+  font-size: 18px;
+
+  font-weight: 1000;
+
+  letter-spacing: 2px;
+
+  color: white;
+
+  text-shadow:
+    0 0 8px red;
+}
+
+.cake-body {
+
+  position: absolute;
+
+  top: 55px;
+
+  left: 10px;
+
+  width: 200px;
+  height: 80px;
+
+  background:
+    linear-gradient(
+      90deg,
+      #4b0905,
+      #a62612,
+      #4b0905
+    );
+
+  border:
+    3px solid #e52b19;
+
+  border-top: none;
+}
+
+.cake-bottom {
+
+  position: absolute;
+
+  top: 120px;
+
+  left: 18px;
+
+  width: 184px;
+  height: 30px;
+
+  border-radius:
+    0 0 15px 15px;
+
+  background: #270403;
+
+  border:
+    3px solid #a91b10;
+}
+
+.cake.cut {
+
+  animation:
+    cutCake .8s ease;
+}
+
+
+/* =========================
+   FINAL
+========================= */
+
+.final-stage h1 {
+
+  color: #ff2222;
+
+  font-size: 40px;
+
+  text-shadow:
+    0 0 15px red;
+}
+
+.celebration {
+
+  font-size: 28px;
+}
+
+
+/* =========================
+   GIFT BOX
+========================= */
+
+.gift-stage {
+
+  width: 100%;
+  height: 100%;
+
+  justify-content: center;
+
+  align-items: center;
+
+  flex-direction: column;
+}
+
+.gift-stage h2 {
+
+  color: white;
+
+  text-shadow:
+    0 0 10px red;
+}
+
+.gift-box {
+
+  width: 190px;
+  height: 155px;
+
+  position: relative;
+
+  cursor: pointer;
+
+  transition:
+    transform .3s;
+}
+
+.gift-box:hover {
+
+  transform:
+    translateY(-5px);
+}
+
+.gift-body {
+
+  position: absolute;
+
+  left: 12px;
+  right: 12px;
+  bottom: 0;
+
+  height: 108px;
+
+  border-radius: 8px;
+
+  background:
+    linear-gradient(
+      135deg,
+      #a00000,
+      #e21b1b,
+      #680000
+    );
+
+  border:
+    3px solid #ff3434;
+}
+
+.gift-lid {
+
+  position: absolute;
+
+  left: 5px;
+  right: 5px;
+
+  top: 28px;
+
+  height: 42px;
+
+  border-radius: 9px;
+
+  background:
+    linear-gradient(
+      #ef2525,
+      #820000
+    );
+
+  border:
+    3px solid #ff4a4a;
+
+  z-index: 3;
+
+  transition:
+    transform 1s;
+}
+
+.gift-ribbon-vertical {
+
+  position: absolute;
+
+  z-index: 4;
+
+  width: 28px;
+
+  top: 28px;
+  bottom: 0;
+
+  left: 81px;
+
+  background: #f5c84c;
+}
+
+.gift-ribbon-horizontal {
+
+  position: absolute;
+
+  z-index: 5;
+
+  left: 12px;
+  right: 12px;
+
+  top: 70px;
+
+  height: 20px;
+
+  background: #f5c84c;
+}
+
+.gift-bow {
+
+  position: absolute;
+
+  z-index: 8;
+
+  top: -5px;
+
+  left: 50%;
+
+  transform:
+    translateX(-50%);
+
+  font-size: 43px;
+}
+
+.gift-box.opened .gift-lid {
+
+  transform:
+    translateY(-65px)
+    rotate(-8deg);
+}
+
+.gift-box.opened {
+
+  animation:
+    giftBounce .7s ease;
+}
+
+
+/* =========================
+   SPIDER-MAN TOY
+========================= */
+
+.toy-stage {
+
+  display: none;
+
+  width: 100%;
+  height: 100%;
+
+  flex-direction: column;
+
+  justify-content: center;
+
+  align-items: center;
+}
+
+.toy {
+
+  width: 150px;
+  height: 205px;
+
+  position: relative;
+
+  animation:
+    toyBounce 1.8s infinite ease-in-out;
+}
+
+.toy-head {
+
+  position: absolute;
+
+  width: 108px;
+  height: 92px;
+
+  left: 21px;
+  top: 0;
+
+  border-radius:
+    48% 48% 45% 45%;
+
+  background:
+    linear-gradient(
+      145deg,
+      #f32a2a,
+      #8c0000
+    );
+
+  border:
+    4px solid #260000;
+}
+
+.toy-eye {
+
+  position: absolute;
+
+  width: 30px;
+  height: 42px;
+
+  top: 26px;
+
+  background: white;
+
+  border:
+    4px solid #111;
+
+  border-radius:
+    55% 45% 55% 45%;
+}
+
+.eye-left {
+
+  left: 17px;
+
+  transform:
+    rotate(22deg);
+}
+
+.eye-right {
+
+  right: 17px;
+
+  transform:
+    rotate(-22deg);
+}
+
+.toy-body {
+
+  position: absolute;
+
+  left: 30px;
+  top: 78px;
+
+  width: 90px;
+  height: 98px;
+
+  border-radius:
+    38px 38px 24px 24px;
+
+  background:
+    linear-gradient(
+      90deg,
+      #8c0000,
+      #e02020,
+      #7b0000
+    );
+
+  border:
+    4px solid #260000;
+}
+
+.toy-spider {
+
+  color: #111;
+
+  font-size: 38px;
+
+  text-align: center;
+
+  margin-top: 24px;
+}
+
+.toy-arm {
+
+  position: absolute;
+
+  width: 22px;
+  height: 86px;
+
+  top: 92px;
+
+  border-radius: 15px;
+
+  background: #b50d0d;
+
+  border:
+    4px solid #260000;
+}
+
+.arm-left {
+
+  left: 9px;
+
+  transform:
+    rotate(25deg);
+}
+
+.arm-right {
+
+  right: 9px;
+
+  transform:
+    rotate(-25deg);
+}
+
+.toy-leg {
+
+  position: absolute;
+
+  width: 27px;
+  height: 67px;
+
+  top: 157px;
+
+  border-radius: 16px;
+
+  background: #111;
+
+  border:
+    4px solid #260000;
+}
+
+.leg-left {
+
+  left: 39px;
+
+  transform:
+    rotate(9deg);
+}
+
+.leg-right {
+
+  right: 39px;
+
+  transform:
+    rotate(-9deg);
+}
+
+.speech {
+
+  margin-top: 10px;
+
+  padding:
+    12px 20px;
+
+  border:
+    2px solid red;
+
+  border-radius: 18px;
+
+  background: #080808;
+
+  color: white;
+
+  font-size: 20px;
+
+  font-weight: 900;
+
+  line-height: 1.4;
+
+  box-shadow:
+    0 0 18px
+    rgba(255, 0, 0, .5);
+}
+
+
+/* =========================
+   ANIMATIONS
+========================= */
+
+@keyframes flicker {
+
+  from {
+    transform: scale(1);
+  }
+
+  to {
+    transform:
+      scale(1.08)
+      rotate(2deg);
+  }
+}
+
+@keyframes cutCake {
+
+  50% {
+    transform:
+      rotate(-3deg)
+      scale(1.07);
+  }
+}
+
+@keyframes giftBounce {
+
+  30% {
+    transform:
+      translateY(-10px)
+      rotate(-2deg);
+  }
+
+  60% {
+    transform:
+      translateY(3px)
+      rotate(2deg);
+  }
+
+  100% {
+    transform: none;
+  }
+}
+
+@keyframes toyBounce {
+
+  50% {
+    transform:
+      translateY(-8px)
+      rotate(1deg);
+  }
+}
+
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-height: 650px) {
+
+  .scene {
+
+    height: 94vh;
+  }
+
+  .birthday-message {
+
+    top: 18%;
+  }
+
+  .cake {
+
+    transform:
+      scale(.85);
+  }
+}
